@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Grade VI - English Language</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <style>
+
+      #sortable1, #sortable2 {
+        border: 1px solid #eee;
+        width: 380px;
+        min-height: 45px;
+        list-style-type: none;
+        margin: 0;
+        padding: 5px 0 0 0;
+        float: left;
+        margin-right: 10px;
+      }
+      #sortable1 li, #sortable2 li {
+        margin: 0 5px 5px 5px;
+        padding: 5px;
+        font-size: 0.9em;
+        width: 360px;
+        min-height: 55px;
+      }
+
+      #draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+      #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+
+    </style>
+
+    <script type="text/javascript">
+      var show = 1;
+
+      <!-- Function to toggle answers on click anywhere-->
+      $(document).ready(function () {
+        $("#grammar").click(function() {
+           if (show++ % 2) {
+             $('.bg-success').css('visibility','hidden');
+             $('.label-info').css('visibility','hidden');
+             $('.ans').css('text-decoration','inherit');
+             $('.ans').css('font-weight', 'normal');
+           } else {
+             $('.bg-success').css('visibility','visible');
+             $('.label-info').css('visibility','visible');
+             $('.ans').css('text-decoration','underline');
+             $('.ans').css('font-weight', 'bold');
+           }
+         })
+       });
+
+      $(function() {
+        $( "#sortable1, #sortable2" ).sortable({
+          connectWith: ".connectedSortable"
+        }).disableSelection();
+      });
+
+
+      $(function() {
+        $( "#accordion" ).accordion({
+          active: false,
+          collapsible: true
+        });
+      });
+
+      $(function() {
+        $( "#draggable" ).draggable();
+        $( "#droppable" ).droppable({
+          drop: function( event, ui ) {
+            $( this )
+              .addClass( "ui-state-highlight" )
+              .find( "p" )
+                .html( "Dropped!" );
+          }
+        });
+      });
+
+      $(function() {
+        $("#tabs").tabs();
+        $("#letter-tabs").tabs();
+        $("#essay-tabs").tabs();
+        $("#grammar-tabs").tabs();
+      });
+
+      $(document).ready(function() {
+          $("#essay_tab_1").on('keydown', function(e) {
+              var words = $.trim(this.value).length ? this.value.match(/\S+/g).length : 0;
+              if (words <= 200) {
+                  $('#word_count').text(words);
+              }else{
+                  if (e.which !== 8) e.preventDefault();
+              }
+          });
+       });
+
+    </script>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span>              <span class="icon-bar"></span>              <span class="icon-bar"></span>              <span class="icon-bar"></span></button>            <a href="index.html" class="navbar-brand">Grade VI</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="eng-lang.html">Eng Lang</a></li>
+            <li><a href="eng-lit.html">Eng Lit</a></li>
+            <li><a href="geography.html">Geo</a></li>
+            <li><a href="computer.html">Computer</a></li>
+          </ul>
+        </div>
+      </div> <!-- bootstrap header container -->
+    </nav>
+    <div class="container">
+      <div id="tabs">
+        <ul>
+          <li><a href="#grammar">Grammar</a></li>
+          <li><a href="#letter">Letter Writing</a></li>
+          <li><a href="#essay">Essay Writing</a></li>
+          <li><a href="#vocabulary">Vocabulary</a></li>
+          <li><a href="#exam-notes">Exam Notes</li>
+        </ul>
+
+        <div id="letter">
+          <div id="letter-tabs">
+            <ul>
+              <li><a href="#letter-tab-0"></a></li>
+              <li><a href="#letter-tab-1">Letter of Request (informal)</a></li>
+              <li><a href="#letter-tab-2">Letter of Enquiry</a></li>
+              <li><a href="#letter-tab-3">Formal letter to Principal and teacher</a></li>
+              <li><a href="#letter-tab-4">Match letters</a></li>
+            </ul>
+
+            <div id="letter-tab-0">
+            </div>
+            <div id="letter-tab-1">
+              <form>
+                <textarea cols="20" rows="5" placeholder="address">
+A6, Green Meadows,
+Harlur Road, 
+Bangalore
+                </textarea></br></br>
+                <input type="text" size=19 value="January 26, 2016"></br></br>
+                <input type="text" value="Dear Vasanth,"></br></br>
+                <textarea cols=60 rows=20>
+You will be surprised to receive my letter, as we have not been in touch for a long time. For my school project on "Historical places", I am coming to Bellary. I will be there for 5 days. I want a favour from you. I want you to accompany me to Hampi as site seeing tour, where I need your expert guidance on the historical importance. I remember you always telling me stories of Vijayanagara empire. 
+
+    Please treat this as personal request. My project is for the cause of keeping our culture alive and for my generation to learn from it. I hope you would join me in this cause. I will be there between March 15 to March 20.  Please let me know if it is convenient to you.
+
+    Looking forward for your response. Feel free to contact me on mobile.
+
+                </textarea></br>
+
+                <input type="text" size=30 value="Yours lovingly,"></br></br>
+                <input type="text" size=10 value="Anshul"></br></br>
+              </form>
+            </div>
+
+            <div id="letter-tab-2">
+              <h4>Write a letter to your friend in Pune describing about the birthday celebration you had with your friends.</h4></br>
+              <textarea cols=60 rows=30 placeholder="Letter to a friend"></textarea>
+            </div>
+            <div id="letter-tab-3">
+              <h4>Write a letter to your friend in Pune describing about the birthday celebration you had with your friends.</h4></br>
+              <textarea cols=60 rows=30 placeholder="Letter to a friend"></textarea>
+            </div>
+            <div id="letter-tab-4">
+              <div class=container>
+                <h4>Match the type of letter with content (examples)</h4>
+                <ul id="sortable1" class="connectedSortable">
+                  <li class="ui-state-default">Informal Letter</li>
+                  <li class="ui-state-default">Narrative Letter</li>
+                  <li class="ui-state-default">Apology Letter</li>
+                  <li class="ui-state-default">Congratulating Letter</li>
+                  <li class="ui-state-default">Sympathy Letter</li>
+                  <li class="ui-state-default">Thanking Letter</li>
+                  <li class="ui-state-default">Descriptive Letter</li>
+                </ul>
+
+                <ul id="sortable2" class="connectedSortable">
+                  <li class="ui-state-highlight">I am sorry that I was not able to come for your birthday.</li>
+                  <li class="ui-state-highlight">Letter to friend, grandpa, cousin, aunt.</li>
+                  <li class="ui-state-highlight">I would like to thank you for the wonderful gift.</li>
+                  <li class="ui-state-highlight">It was a very scary night and it was raining, while I was returning home.</li>
+                  <li class="ui-state-highlight">I am very glad to hear that you have won the competition.</li>
+                  <li class="ui-state-highlight">When I was going to railway station, I witnessed a car accident.</li>
+                  <li class="ui-state-highlight">I heard about the sad demise of your grandfather. It was terrible news for me.</li>
+                </ul>
+              </div> <!-- container -->
+            </div> <!-- letter-tab-9 -->
+          </div> <!-- letter tabs -->
+        </div> <!-- letter -->
+
+        <div id="essay">
+          <div id="essay-tabs">
+            <ul>
+              <li><a href="#essay-tab-1">Essay 1</a></li>
+              <li><a href="#essay-tab-2">Essay 2</a></li>
+              <li><a href="#essay-tab-3">Essay 3</a></li>
+              <li><a href="#essay-tab-4">Essay 4</a></li>
+              <li><a href="#essay-tab-5">Essay 5</a></li>
+              <li><a href="#essay-tab-6">Essay 6</a></li>
+            </ul>
+            <div id="essay-tab-1">
+              <h4>Describe an early morning walk in the park in winter. Give details of the smells, sights, sounds and feelings you experienced. Total length should be 200 words.</h4>
+              <textarea rows="20" cols="80" id="essay_tab_1" placeholder=""></textarea></br>
+              <p class="label label-info">Words: <span id=word_count>0</span></p>
+            </div>
+            <div id="essay-tab-2">
+            </div>
+            <div id="essay-tab-3">
+            </div>
+            <div id="essay-tab-4">
+            </div>
+            <div id="essay-tab-5">
+            </div>
+            <div id="essay-tab-6">
+            </div>
+          </div> <!-- essay-tabs -->
+        </div> <!-- essay -->
+
+        <div id="grammar">
+          <div id="grammar-tabs">
+            <ul>
+              <li><a href="#grammar-tab-1">Prepositions</a></li>
+              <li><a href="#grammar-tab-2">Phrase and Clause</a></li>
+              <li><a href="#grammar-tab-3">Conjunctions</a></li>
+              <li><a href="#grammar-tab-4">Interjections</a></li>
+              <li><a href="#grammar-tab-5">Determiners</a></li>
+              <li><a href="#grammar-tab-6">Sentence structure</a></li>
+              <li><a href="#grammar-tab-7">Vocabulary</a></li>
+              <li><a href="#grammar-tab-8">Tenses</a></li>
+              <li><a href="#grammar-tab-9">Active Voice and Passive Voice</a></li>
+            </ul>
+            <div id="grammar-tab-1">
+              <h4>Underline the prepositions</h4>
+              <ol>
+                <li>I have been writing the report <span class="ans">for</span> two days.
+                <li>You will find the shop <span class="ans">outside</span> the gate.
+                <li>I saw the children running <span class="ans">in</span> the park.
+                <li>Daffy duck was hiding <span class=ans>under</span> the table but the hunder did not notice.
+                <li>She climbed <span class=ans>upon</span> the horse and rode off.
+              </ol>
+
+              <h4>Underline the prepositional phrases</h4>
+              <ol>
+                <li>When I arrived, I was whisked <span class="ans">into a dark room.</span>
+                <li><span class="ans">With a gleam in his eye</span>, my friend pushed me <span class="ans">into the class room.<span>
+                <li>The book <span class="ans">with the pictures</span> would be useful to teach the children.
+                <li>I am looking for the boy <span class="ans">with a red bag</span>.
+                <li>The studends laughed <span class="ans">at the monkey</span> sitting <span class=ans>on a scooter</span>.
+              </ol>
+
+            </div>
+            <div id="grammar-tab-2">
+              <div id=container>
+
+                First understand <i>subject</i> and <i>predicate</i>.
+
+                  <ol>
+                    <li>Sam plays every evening.</br>
+                      Subject: Sam</br>
+                      Predicate: plays every evening.</br>
+                  <li>Sam and Davis play together every evening.</br>
+                      Subject:Sam and Davis</br>
+                      Predicate: play together every evening</br>
+                      <li>The grey dolphin jumped up high.
+                        <li>The little puppy is barking angrily.
+                  <ol>
+                </p>
+              </div>
+            </div><!-- Phrase and clause -->
+            <div id="grammar-tab-3">
+            <h3>Theory and Examples</h3>
+
+            <h4>A) Simple, compound and complex sentences</h4>
+
+            <h5>Simple:</h5>
+
+            a. He runs.
+            b. She plays the piano.
+            c. We are late.
+
+            <h5>Compound:</h5>
+
+            a. He runs <b>and</b> I swim.
+            b. Luke mowed the lawn and he earned ten dollars.
+            c. Thelma and Brenda buy and sell automobiles.
+
+            <h5>Complex:</h5>
+
+            a. He runs whne I go swimming.
+            b. She was a good player <b>yet</b> she was not selected.
+            c. It rained for three days so the roads were flooded.
+
+            <h4>B) Simple and Conjunctions in pairs</h4>
+
+            <h5>C) Cordinating and Subordinating conjunctions</h5>
+            a. Examples of coordinating conjunctions
+               i. The artist sketched the picture <i>and</i> painted it.
+              ii. The lady searched the cupboard <i>but</i> could not find her book.
+
+            Coordinating words:
+
+              and, but, for, still,
+              only, either..or, neither..nor
+
+            b. Examples of subordinating conjunctions
+
+               i. He said _that_ he was happy.
+              ii. Instructions are given _before_ the examination begins.
+
+            Subordinating Words:
+
+              before, since, till, because,
+              as, that, lest, that, if,
+              unless, though, although, than
+
+            </div>
+
+
+            <div id="grammar-tab-4">
+              <pre>
+              Joy
+              Wow! What a car!
+              Hurray! We won the match!
+
+              Grief
+              Alas! We could have won the match!
+              Oh dear! Why are you not eating?
+
+              Disgust
+              Yuck! What a bad odour!
+              Yikes! The axe fell in the well!
+
+              Feeling
+
+              Well done! You have won the quiz!
+              Press the start button and, Hey Presto, a copy comes out the other end!
+              </pre>
+
+            </div>
+            <div id="grammar-tab-5">
+            </div>
+            <div id="grammar-tab-6">
+            </div>
+          </div> <!-- grammar-tabs -->
+        </div> <!-- grammar -->
+
+
+
+        <div id="vocabulary">
+          <p>Vocabulary goes here </p>
+        </div> <!-- vocabulary -->
+
+        <div id="exam-notes">
+          <dl>
+            <dt>Prepositions</dt>
+            <dd>
+              Example: on, at, in, under, till, since.
+              A preposition is a word that links a noun, pronoun or noun phrase to some other part of the sentance.
+
+            </dd>
+            <dt></dt><dd></dd>
+          </dl>
+        </div> <!-- exam notes-->
+      </div> <!-- tabs -->
+
+    </div> <!-- container -->
+  </body>
+</html>

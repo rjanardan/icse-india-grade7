@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Grade VI - English Literature (Term 2)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <style>
+      #sortable1, #sortable2 {
+        border: 1px solid #eee;
+        width: 282px;
+        min-height: 75px;
+        list-style-type: none;
+        margin: 0;
+        padding: 5px 0 0 0;
+        float: left;
+      <!-- {{{  -->
+
+        margin-right: 10px;
+      }
+      #sortable1 li, #sortable2 li {
+        margin: 0 5px 5px 5px;
+        padding: 5px;
+        font-size: 0.9em;
+        width: 270px;
+        min-height: 75px;
+      }
+
+      .question { font-weight: bold; }
+      .answer { font-style: italic; }
+      .word { font-weight: bold; }
+      .meaning {font-style: italic; }
+      .head4 { font-weight: bold; font-size: 105%; }
+
+      #draggable { width: 100px; height: 100px; padding: 0.5em; 
+                   float: left; margin: 10px 10px 10px 0; }
+      #droppable { width: 150px; height: 150px; padding: 0.5em; 
+                   float: left; margin: 10px; }
+
+      label {
+        display: inline-block;
+        width: 5em;
+      }
+
+    </style>
+
+    <script type="text/javascript">
+      var show = 1;
+
+      $(document).ready(function() {
+         $(".bg-primary, .label-primary, .question").click(function() {
+            if (show++ % 2) {
+              $('.bg-success').css('visibility','hidden');
+              $('.label-info').css('visibility','hidden');
+              $('.answer').css('visibility','hidden');
+            } else {
+              $('.bg-success').css('visibility','visible');
+              $('.label-info').css('visibility','visible');
+              $('.answer').css('visibility','visible');
+            }
+         })
+      });
+
+
+      $(function() {
+        $( "#sortable1, #sortable2" ).sortable({
+          connectWith: ".connectedSortable"
+        }).disableSelection();
+      });
+
+      $(function() {
+        $( "#accordion1" ).accordion({
+          active: false,
+          collapsible: true
+      });
+        $( "#accordion2" ).accordion({
+          active: false,
+          collapsible: true
+      });
+      
+      });
+
+      $(function() {
+        $( "#draggable" ).draggable();
+        $( "#droppable" ).droppable({
+          drop: function( event, ui ) {
+            $( this )
+              .addClass( "ui-state-highlight" )
+              .find( "p" )
+                .html( "Dropped!" );
+          }
+        });
+      });
+
+      $(function() {
+        $("#tabs").tabs({
+          active: 0})
+      });
+
+      $(document).ready(function() {
+          $("#essay_tab_1").on('keydown', function(e) {
+              var words = $.trim(this.value).length ? this.value.match(/\S+/g).length : 0;
+              if (words <= 200) {
+                  $('#word_count').text(words);
+              }else{
+                  if (e.which !== 8) e.preventDefault();
+              }
+          });
+       });
+
+      $(function() {
+        $( document ).tooltip();
+      });
+
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" 
+                  class="navbar-toggle collapsed">
+                  <span class="sr-only">Toggle navigation</span>              
+                  <span class="icon-bar"></span>              
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+          </button>
+          <a href="index.html" class="navbar-brand">Grade VI</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="eng-lang.html">Eng Lang</a></li>
+            <li class="active"><a href="eng-lit.html"><b>Eng Lit (Term 2)</b></a></li>
+            <li><a href="geo-term2.html">Geo (Term 2)</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <div class="container">
+    <div id="tabs">
+      <ul>
+        <li><a href="#poetryqna">Poetry Q&A</a></li>
+        <li><a href="#proseqna">Prose Q&A</a></li>
+        <li><a href="#ballad">Ballad (Compulsary)</a></li>
+      </ul>
+      <div id="poetryqna">
+        <div id="accordion1">
+          <h3>Unit 2: Lion</h3> 
+          <div>
+              The lion walks behind his bars,</br>
+              His <span class=question>tawny</span><span class=answer>
+              (golden brown)</span> shoulders <span class=question>ebb
+              and flow</span> <span class=answer>(move up and down as
+              he walks)</span>,</br>
+              With swaying <span class=question>flank</span>
+              <span class=answer>(side)</span> and lowered
+              <span class=question>mane</span><span class=answer>
+                (long hair flowing down the neck)</span></br>
+              He pads the <span class=question>asphalt </span>
+              <span class=answer>(material that roads are made of)</span>,
+              proud and slow.</br></br>
+
+              If he could break his rusted cage,</br>
+              How many eyes would open wide</br>
+              To see him flaming thro' the gap,</br>
+              A lion springing in his pride!</br></br>
+
+              But now he walks with silent <span class=question>tread
+              </span><span class=answer> (steps)</span>,</br>
+              Swinging and turning in his den,</br>
+              He yawns and blinks his golden eyes</br>
+              Above the <span class=question>prying</span>
+              <span class=answer>(searching)</span> sons of men.</br></br>
+
+
+              <h3>Exploring details</h3>
+              <h4>Answer the following questions in your own words</h4>
+              <p class=question>1. Where do you think the lion is in the
+                poem?</p>
+              <p class=answer>Ans. The lion is in the cage. It looks like
+                a pet animal and not a ferocious wild animal.</p>
+              <p class=question>2. What would happen if the lion could
+                break out of its cage?</p>
+              <p class=answer>Ans. People would be really scared to see
+                lion outside of the cage. There would be panic as people
+                will run for their lives.</p>
+              <p class=question>3. Does the poet think the lion is
+                magnificient? Which lines tell us so?</p>
+              <p class=answer>Ans. Yes, the poet thinks the lion to be
+                magnificient. </br></br>
+                <i>His tawny shoulders ebb and flow, with swaying flank
+                  and lowered mane</i>
+              </p>
+
+
+              <h3>Reference to context</h3>
+              <p class=quesion></p>
+          </div>
+
+          <h3>Unit 7: There was an Indian (pg 37)</h3>
+          <div>
+            <h4>Answers to Textbook Questions</h4>
+            <h5>Answer the following questions in your own words.</h5>
+            <!--
+            <p class=question>Where was Anne kneeling?</p>
+            <p class=answer>Ans: Anne was kneeling towards the window.</p>
+            -->
+            <h4>Word Meanings</h4>
+          </div><!-- There was an Indian -->
+
+          <h3>Unit 21: Uphill</h3>
+          <div>
+              <h4>Summary</h4>
+              <h4>Answers to Textbook Questions</h4>
+
+              <p class=question>A. Answer the following questions in your own words.
+              <p class=question>1. Where do you think the person is going in this poem?
+              <p class=question>2. How long will the journey take?
+              <p class=question>3. What does the wayfarer want at the end of the journey?
+              <p class=question>4. Why is the person afraid that she or he will miss the 'inn'?
+              <p class=question>5. Who are the wayfarers 'who have gone before'?
+
+              <p class=quesion>B. Read the lines given below and answer the questions that follow with reference to context.
+                
+<pre>
+But is there for the night a resting-place?
+A roof for when the slow, dark hours begin,
+May not the darkness hide it from my face?
+You cannot miss that inn.
+</pre>
+              <p class=question>a. What is this resting-place?
+              <p class=answer>Ans: Here resting-place is lodge or inn for travelers to stay over.
+              <p class=question>b. What are the 'slow, dark hours'?
+              <p class=answer>Ans: Slow, dark hours is the evening and night time.
+              <p class=question>c. Why is the speaker so sure the journey will be dark? 
+              <p class=answer>Ans: The speaker is very sure because it is uphill and takes times to reach the inn top of the hill.
+<pre>
+Shall I find comfort, travel-sore and weak?
+Of labour you shall find the sum.
+Will there be beds for me and all who seek?
+Yea, beds for all who come.
+</pre>
+              <p class=question> a. Why will the wayfarer be 'travel-sore and weak'?
+              <p class=answer>Ans: The wayfarers would be very tired due to strain from journey to uphill.
+              <p class=question> b. What kind of comfort can wayfarers expect in this place?
+              <p class=answer>Ans: For the comfort of the wayfarers there are beds to relax. There are enough beds to accommodate many.
+              <p class=question> c. What does the line 'beds for all who come' tell you about this place? 
+              <p class=answer>Ans: 
+
+              <p class=question>d. Who are 'all who come'?
+              <p class=answer>Ans: 
+
+                C. The words in the poem have a deeper meaning. Match these words with the deeper meaning they suggest.
+                Ans.
+                road death morn all humankind night heaven inn birth wayfarers good work labour the journey of life.
+          </div> <!-- Uphill -->
+
+        <h3>Unit 28: The Song of the Brook</h3>
+        <div>
+          <p class=question>
+            Answer the following questions in your own words
+
+          <p class=question>1. Who is the speaker in the poem?
+          <p class=answer> Speaker of the poem is brook. It is telling about its journey from origin to merging into river. Its journey is long, thrilling and with obstacles. The brook's journey is very exciting.
+
+          <p class=question>2. From where has the speaker come?
+          <p class=answer>The brook's journey starts from top of a valley where birds like coot and hern visit often. He comes with loud noise and full force.
+
+          <p class=question>3. What does the speaker cross on its way?
+          <p class=answer>The brook crosses villages, bridges, farms, lawns, grassy plots and finally joins the brimming river. On the way, it finds flora and fauna, including willow-weed, mallow, trout, forget-me-nots and cresses.
+
+          <p class=question>4. What does the speaker mean by ‘For men may come and men may go, but I go on for ever.’
+          <p class=answer>The brook is immortal (never dies). Brook water merges into river. The river water converts into clouds. When it rains on the hills, brook again comes to life. Where as men die after some time.</p>
+          <p class=question>Homework Q&A</p>
+          <p>
+            I murmur under the moon and stars
+            In <a href="#" title="thorny">brambly</a> wildernesses;</br>
+            I linger by my shiningly bars;</br>
+            I loiter round my cresses;</br>
+            And out again I curve and flow</br>
+            To join the brimming river,</br>
+            For men may come and men may go,</br>
+            But I go on for ever.</br>
+          </p>
+          <p class=question>1. What kind of movement is depicted in the above lines.</p>
+          <p class=answer>Ans: Here the brook is mentioning about its journey before merging into the river. The brook makes murmuring sounds in the night. It slows down and lazily passes the thorny uncultivated land and twists around the plants.
+          <p class=question>2. What does the brook join?</p>
+          <p class=answer>Ans: The brook originates at the top of a valley, falls down the steep slopes, crosses many bridges and fields. It finally merges into the river, where it ends its journey.</p>
+
+          <p class=question>3. Do you think brook's life ends after it joins the river? Why?</p>
+          <p class=answer>Ans: No, the brook's life does not end after joning the river. Brook transforms into river. The river water again converts into clouds in the sky. When it rains on the hills, brook again comes back to life. That is the reason author keeps repeating that "men may not exists, but brook goes on forever".</p>
+        </div>
+
+        </div> <!-- accordion -->
+      </div> <!-- Poetry Q & A -->
+
+      <div id="proseqna">
+        <div id="accordion2">
+          <h3>Unit 6: Home on the Veld</h3> 
+          <div>
+            <pre>
+My mother was in charge of three rondavels at 
+Qunu which, as I remember, were always filled
+with the children of my relations. In fact, I 
+can hardly remember any occasion as a child 
+when I was alone. In African culture, the sons 
+and daughters of one's aunts and uncles are
+considered brothers and sisters, not cousins.
+My mother's sister is my mother and my brother's
+child is my son or my daughter.
+            </pre>
+
+            <p class=question>1. What was the author's mother
+              responsible for?
+            <p class=answer>A. Nelson Mandela's mother was
+              responsible for taking care of 3 houses and families.
+              She was responsible for household chores, taking care
+              of children and their needs.
+
+            <p class=question>2. What is the reason that the
+              author was never alone in his childhood?
+            <p class=answer>A. In the village where Nelson Mandela
+              grew up, families used to stay together, eat together
+              and played together. There were so many children of
+              his uncle and aunts, that he never was alone.
+
+            <p class=question>3. Describe family relationships
+              in African culture.
+            <p class=answer>A. In African culture, they lived
+              as joint family. Children of brothers and sisters
+              were together. The sons and daughters of one's
+              uncles and aunts are considered brothers and sisters,
+              not cousins. Also, uncle and aunt are called father
+              and mother.
+
+            <p class=question>4. Compare relationships in the
+              African culture with that of what you share within
+              your own family.
+            <p class=answer>A. Compared to how Nelson Mandela
+              grew up, it is different in my family. Me and my
+              cousin stay in different houses, but near by. We
+              meet occasionally and have fun going to restaurants
+              together. We meet on birthdays and greet each other.
+              
+            <pre>
+It was in the fields that I learned  how to knock brids out of the sky
+with  slingshot, to  gather wind  honey, fruits  and edible  roots, to
+drink warm, sweet  milk straight from the  udder of a cow,  to swim in
+the clear, cold  streams, and to catch fish with  string and sharpened
+bits  of wire.  I learned  to  stick fight  - essential  to any  rural
+African boy - and became skilled in its various techniques.
+            </pre>
+
+            <p class=question>1. What did the author learn in
+              his childhood?
+            <p class=answer>A. Nelson Mandela lived in a
+              village with near by fields. He learnt how
+              to gather wild honey, fruits and edible roots.
+              He learnt how to dring milk directly from udder
+              of a cow. He also learnt how to catch fish and
+              knock birds using slingshot.
+
+            <p class=question>2. What was considered as the
+              essential skill for African boys?
+              
+            <p class=answer>A. Nelson Mandela learnt various
+              things like Of the many things Nelson Mandela
+              learnt during early childhood. One thing that was
+              essential knowledge was stick-fight. He became
+              skilled in various techniques.
+
+            <p class=question>3. Do you think the author had
+              a happy childhood in spite of poverty? Give
+              reasons for your answer.
+            <p class=answer>A. Yes, author had happy childhood.
+              He had children around him always and huge open
+              spaces to play. He had fun learning gathering of
+              honey, catch fish and knock birds.
+          </div>
+
+          <h3>Unit 8: Don Quixote Fights Some Giants</h3>
+          <div>
+            <p class=question>1. Whom did Don Quixote choose as his
+              squire? How did he persuade him to become his squire?
+            <p class=answer>A. Don Quixote chose Sancho Panza as
+              his squire. Sancho Panza was a poor man. Don persuaded
+              Sancho by promising many adventures. He also promised to
+              make him governor of the islands they will conquer together.
+
+            <p class="question">2. What arrangements did Don Quixote
+              and his squire make for their adventures?
+            <p class="answer">A. Sancho has brought his donkey with
+              him as he did not own a horse. Sancho brought
+              leather-bottle with full of water and empty saddlebags
+              to receive the things they would win in their contests.
+
+            <p class="question">3. Whom did Don Quixote mistake
+              for giants? How did Sancho Panza try to correct his master?
+              
+            <p class="answer">A. Don mistook windmills for giants.
+              He said some of the giants had arms more than six miles
+              long. Sancho tried to correct his master. They are not
+              giants but windmills. Arms are actually sails. But
+              still Don thought they were giants.
+
+            <p class="question">4. What was the result of Don Quixote's
+                fight with the 'giants'?
+            <p class="answer">A. Don attacked the nearest windmill,
+                pushing his spear in to the sail. The sail rotated fast
+                and broke the spear into many pieces. It threw Don
+                and Rozinante down.
+
+              <p class="question">5. How did he react to his defeat?
+              <p class="answer">A. Don said that in war one's fortune
+                can change easily. He said some magician had turned
+                giants into windmills so that he would not be able
+                to conquer them. But still Don had hope to win.
+
+              <hr>
+                
+              <p class=head4>Read the lines given below and answer the questions
+                that follow with reference to context.</p>
+
+              <p class=question>"Some  knights made their squires  wait for many
+              years. I shall not be like that.  I may win a kingdom in six days'
+                time. I shall straightaway put you in charge of it."</p>
+              <ol>
+              <li class="question"> Why did Don Quixote make such a
+                promise to Sancho?</li>
+              <p  class="answer">Don  wanted  to  presuade Sancho  to  be  his
+                squire. Hence, he was assuring him early benefits.</p>
+                    
+              <li class="question">b. What did the  knight and his squire carry
+                with them as they went along?</li>
+              <p class=answer>They carried with  them leather-bottle full of
+                water and empty saddlebags to keep things they would win.</p>
+                    
+              <li class="question">c. What did the knight and his assistant
+                encouter next?</li>
+              <p  class=answer>They encountered  huge  windmills, which  Don
+                  mistook as giants.</p>
+              </ol>      
+              <p class=question>2.  At that  moment, the  wind rose  and the
+                sails of the windmills began to move.
+                "Move your arms as much as  you like, you will not stop me!"
+                Don Quixote shouted when he saw this.
+                <ol>
+                  <li class=question>What did  Don Quixote  mistake windmills
+                for?</li>
+                  <p class=answer>Don mistook windmills for giants.</p>
+                
+                  <li class=question>Who tried to correct this mistake?</li>
+                  <p class=answer>Sancho tried to correct his master.</p>
+                    
+                  <li class=question>How did the knight fare in this encounter
+                    with the windmills?</li>
+                  <p  class=answer>Don fared  very badly.  In the  encounter his
+                     spear was broken and he was thrown on ground.</p>
+                </ol>
+                <hr>
+              <p class=head4>Revision questions</p>
+              <ol>
+                <li class=question>Do you think Don was intelligent knight?</li>
+                <p class=answer>No, Don is  stupid. He cannot make out
+                difference between giants and windmills.</p> 
+                
+                <li class=question>Do you think Sancho did right thing serving Don as master?</li>
+                <p class=answer>No,  Sancho  should not  have  served
+                  Don. Serving a fooling master is futile (waste).</p>
+                
+                <li class=question>Do you think Sancho did right thing joining Don
+                Quixote?</li>
+                <p class=answer>Sancho  was poor and did  not have any
+                other option. Still serving a foolish master is futile
+                  and sometimes dangerous.</p>
+
+                <li class=question>Do you think  Sancho was poor? Give
+                reasons.</li>
+                <p class=answer>Yes, Sancho was  poor. He did not have
+                a horse, but only donkey.  He joined Don with dream of
+                  becoming rich.</p>
+
+                <li  class=question>If you  were in  Sancho's place,
+                  would you go with Don?</li>
+                <p  class=answer>No, I  would  not go  with Don,  as
+                  serving  fooling master  is dangerous.  I learnt  it
+                  from panchatantra tales.</p>
+              </ol>
+          </div> <!-- Don Quixote -->
+          
+          <h3>Unit 22: Achilles, the Tortoise</h3>
+          <div> <!-- Achilles, the Tortoise -->
+            <h3>Answers to Textbook questions</h3>
+            <ol>
+              <li class=question>What would Achilles do as soon as he heard his name called?</li>
+              <p class=answer>Ans: Achilles was the most intelligent pet and lovable. He learned his name in a very short time. They had to call out once or twice and then wait. Achilles would come slowly walking from anywhere in the garden.
+                <li class=question>How did Achilles eat strawberries?</li>
+              <p class=answer>Ans: Achilles liked eating bits of lettuce, dandelions and grapes. But his most favorite are the strawberries. He liked it so much that he would go hysterical just looking at them. Small strawberries he would just gulp quickly. The large strawberries, Achilles would take it to lonely place and eat peacefully. He would return back for more.
+                <li class=question>How did Achilles show his love for human company?</li>
+              <p class=answer>Ans: Achilles liked strawberries and human company the most. Anyone came into garden to sit or sun-bathe, Achilles would come through the garden plants. If you were sitting in a chair, he could come close and sleep near the feet.
+                <li class=question>What were the dangers of sun-bathing with Achilles close by?</li>
+              <p class=answer>Ans: If people were lying on a rug for sun-bathing, Achilles would think you were lying on ground to play with it. It would crawl on your body and could even harm with its sharp claws. If you shook him off, it would again come back to crawl on your body.
+                <li class=question>What did author and his family do to remember Achilles?</li>
+              <p class=answer>Ans: One day garden door was open and Achilles went out. He accidentally fell into a disused well and died. Family members mourned the death of Achilles and buried his dead body in the garden below the strawberry plant. Achilles loved strawberries very much.</p>
+            </ol>
+            
+            <p class=question>B. Read the lines given below and answer the questions that follow with reference to context.
+
+<pre>
+1. He would grab the fruit and holding it firmly in his mouth, 
+he would stumble off at top speed until he reached a safe and 
+secluded spot among the flower-beds. There he would drop the 
+fruit and then eat it at leisure, returning for another one 
+when he had finished.
+</pre>
+
+            <p class=question>a. Who is 'he'? Which fruit did he like best?  
+            <p class=answer>Ans: He here is Achilles, the tortoise. Achilles liked strawberries the most.
+            <p class=question> b. What would he do with the smaller fruit?  
+            <p class=answer>Ans: If it was smaller fruit, Achilles would eat in one gulp.
+            <p class=question> c. What would he do when he was given a big strawberry?  
+            <p class=answer>Ans: When a big strawberry was given, he would carry it to a safe and lonely place and eat leisurely.
+
+<pre>
+2. He would pause, survey you thoughtfully, and then choose a 
+portion of your anatomy on which to practice mountaineering.
+</pre>
+
+            <p class=question>a. Why would Achilles practice mountaineering on human beings?
+            <p class=answer>Ans: Achilles loves company of human beings. He thinks people lied on ground to play with him.
+            <p class=question>b. What would a person feel as Achilles tried to climb over him?
+
+              <!-- }}} -->
+            <p class=answer>Ans: Though Achilles feels playful when he climbs a person, the person would feel very uncomfortable and not able to relax.
+            <p class=question>c. What happened if one shook him off?  
+            <p class=answer>Ans: Even if one shook Achilles off, he would again go round the garden and come back to climb. This behavior led to lot of complaining by family members in.
+
+          </div> <!-- Achilles, the Tortoise chapter -->
+          <h3>Unit 25: Macbeth</h3>
+          <div>
+          </div>
+        </div><!-- prose accordion -->
+      </div>
+      <div id=ballad>
+        <h3>Unit 16: Robin Hood and Alan a Dale</h3>
+        <h5>Page: 91</h5>
+        <p>Story summary:</p>
+        <p>
+          Robin Hood  one day  sees a cheerful  young man  dressed in      red,   singing   and  playing   in   the   greenwood:  it is  Alan-a-Dale. The  next day,  he sees  him again, dejected (sad,  worried). He sends two of his Merry Men,  "Little John" and "Much the Miller's Son",  to apprehend (arrest) him.</p>
+        <p>
+          Robin  asks  Alan for  money; but  he explains that  he has but  little, and  that the cause  of his sorrow is  that his truelove  is to  be married to  an elderly knight. When  Alan agrees to  serve Robin, the  latter springs into  action. He  turns  up at  the church  as  a harper,  but refuses  to play:  firstly, until  he has  seen the  bride and groom; secondly, after  he has seen them, because  he does not consider the old  man and the young girl a  suitable match.
+        </p>
+        <p>He blows  his  horn:  and  his Merry  Men,  now  including  Alan, appear. The bishop refuses to marry Alan and the girl, because it is  the law that consent  must be asked three  times. Robin puts the bishop's cloak on Little John, who mockingly asks the question seven times and then  marries the young couple, Robin giving away  the bride  in loco parentis (in place of parent).  All then - except, presumably, for the old knight and  the bishop - repair to the greenwood.
+        </p>
+        <pre>
+
+	 Come listen to me, you gallants so free,
+	 All you that loves mirth for to hear,
+	 And I will you tell of a bold outlaw,
+	 That lived in Nottinghamshire.
+	 That lived in Nottinghamshire.
+
+	 As Robin Hood in the forest stood,
+	 All under the green-wood tree,
+	 There was he ware of a brave young man,
+	 As fine as fine might be.
+
+	 The youngster was clothed in scarlet red,
+	 In scarlet fine and gay,
+	 And he did frisk it over the plain,
+	 And chanted a roundelay.
+
+	 As Robin Hood next morning stood,
+	 Amongst the leaves so gay,
+	 There did he espy the same young man
+	 Come drooping along the way.
+
+	 The scarlet he wore the day before,
+	 It was clean cast away;
+	 And every step he fetched a sigh,
+	 "Alack and a well-a-day!"
+
+	 Then stepped forth brave Little John,
+	 And <u>Much the miller's son,</u>
+	 Which made the young man bend his bow,
+	 When as he see them come.
+
+     "Stand off, stand off!" the young man said,
+	 "What is your will with me?"
+	 "You must come before our master straight,
+	 Under yon green-wood tree."
+
+     And when he came bold Robin before,
+	 Robin asked him courteously,
+	 "O hast thou any money to spare
+	 For my merry men and me?"
+
+	 "I have no money," the young man said,
+	 "But five shillings and a ring;
+	 And that I have kept this seven long years,
+	 To have it at my wedding."
+
+     "Yesterday I should have married a maid,
+	 But she is now from me ta'en,
+	 And chosen to be an old knights delight,
+	 Whereby my poor heart is slain."
+
+     "What is thy name?" then said Robin Hood,
+	 Come tell me, without any fail"
+	 "By the faith of my body," then said the young man,
+	 "My name it is Alan a Dale."
+
+     "What wilt thou give me," said Robin Hood,
+	 "In ready gold or fee,
+	 To help thee to thy true-love again,
+	 And deliver her unto thee?"
+
+     "I have no money, then quoth the young man,
+	 No ready gold nor fee,
+	 But I will swear upon a book
+	 Thy true servant for to be.
+
+     How many miles is it to thy true-love?
+	 Come tell me without any guile:
+	 "By the faith of my body," then said the young man,
+	 It is but five little mile."
+
+	 Then Robin he hasted over the plain,
+	 He did neither stint nor lin,
+	 Vntil he came unto the church
+	 Where Allin should keep his wedding.
+
+     What dost thou do here? the bishop he said,
+	 I prethee now tell to me:
+	 I am a bold harper, quoth Robin Hood,
+	 And the best in the north countrey.
+
+	 "welcome, O welcome," the bishop he said,
+	 That musick best pleaseth me;
+	 You shall have no musick, quoth Robin Hood,
+	 Till the bride and the bridegroom I see.
+
+	 With that came in a wealthy knight,
+	 Which was both grave and old,
+	 And after him a finikin lass,
+	 Did shine like glistering gold.
+
+	 This is no fit match, quoth bold Robin Hood,
+	 That you do seem to make here;
+	 For since we are come unto the church,
+	 The bride she shall chuse her own dear.
+
+	 Then Robin Hood put his horn to his mouth,
+	 And blew blasts two or three;
+	 When four and twenty bowmen bold
+     Came leaping over the lee.
+
+	 And when they came into the church-yard,
+	 Marching all on a row,
+	 The first man was Allin a Dale,
+     To give bold Robin his bow.
+
+	 This is thy true-love, Robin he said,
+	 Young Allin, as I hear say;
+	 And you shall be married at this same time,
+	 Before we depart away.
+
+	"That shall not be," the bishop he said,
+	 "For thy word shall not stand;
+	 They shall be three times asked in the church,
+	 As the law is of our land."
+
+	 Robin Hood pull'd off the bishop's coat,
+	 And put it upon Little John;
+	 "By the faith of my body," then Robin said,
+	 "This cloath doth make thee a man."
+
+     When Little John went into the quire,
+	 The people began for to laugh;
+	 He asked them seven times in the church,
+	 Least three times should not be enough.
+
+	 "Who gives me this maid?" said Little John;
+	 Quoth Robin, "That do I!
+	 And he that doth take her from Allin a Dale
+	 Full dearly he shall her buy."
+
+	 And thus having ended this merry wedding,
+	 The bride lookt as fresh as a queen,
+	 And so they return'd to the merry green wood,
+	 Amongst the leaves so green.
+
+        </pre>
+      </div>
+    </div> <!-- tabs -->
+    <div>
+      <p>Click on question to show/hide answers. </p>
+    </div> <!-- footnote -->
+  </div> <!-- container -->
+
+</body>
+</html>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Grade VI - English Literature</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <style>
+      #sortable1, #sortable2 {
+        border: 1px solid #eee;
+        width: 282px;
+        min-height: 75px;
+        list-style-type: none;
+        margin: 0;
+        padding: 5px 0 0 0;
+        float: left;
+        margin-right: 10px;
+      }
+      #sortable1 li, #sortable2 li {
+        margin: 0 5px 5px 5px;
+        padding: 5px;
+        font-size: 0.9em;
+        width: 270px;
+        min-height: 75px;
+      }
+
+      #draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+      #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+    </style>
+
+    <script type="text/javascript">
+      var show = 1;
+
+      $(document).ready(function() {
+         $(".bg-primary, .label-primary").click(function() {
+            if (show++ % 2) {
+              $('.bg-success').css('visibility','hidden');
+              $('.label-info').css('visibility','hidden');
+            } else {
+              $('.bg-success').css('visibility','visible');
+              $('.label-info').css('visibility','visible');
+            }
+         })
+      });
+
+      $(function() {
+        $( "#sortable1, #sortable2" ).sortable({
+          connectWith: ".connectedSortable"
+        }).disableSelection();
+      });
+
+      $(function() {
+        $( "#accordion" ).accordion({
+          active: false,
+          collapsible: true
+        });
+      });
+
+      $(function() {
+        $( "#draggable" ).draggable();
+        $( "#droppable" ).droppable({
+          drop: function( event, ui ) {
+            $( this )
+              .addClass( "ui-state-highlight" )
+              .find( "p" )
+                .html( "Dropped!" );
+          }
+        });
+      });
+
+      $(function() {
+        $("#tabs").tabs({
+          active: 0})
+      });
+
+      $(document).ready(function() {
+          $("#essay_tab_1").on('keydown', function(e) {
+              var words = $.trim(this.value).length ? this.value.match(/\S+/g).length : 0;
+              if (words <= 200) {
+                  $('#word_count').text(words);
+              }else{
+                  if (e.which !== 8) e.preventDefault();
+              }
+          });
+       });
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span>              <span class="icon-bar"></span>              <span class="icon-bar"></span>              <span class="icon-bar"></span></button>            <a href="index.html" class="navbar-brand">Grade VI</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="eng-lang.html">Eng Lang</a></li>
+            <li class="active"><a href="eng-lit.html"><b>Eng Lit</b></a></li>
+            <li><a href="geography.html"><b>Geo</b></a></li>
+            <li><a href="computer.html">Computer</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <div class="container">
+    <div id="tabs">
+      <ul>
+        <li><a href="#qna">Textbook Q&A</a></li>
+        <li><a href="#exam-notes">Exam Notes</a></li>
+      </ul>
+      <div id="qna">
+        <div id="accordion">
+          <h3>Unit XX: Christmas Carol</h3>
+          <div>
+
+          </div>
+
+          <h3>Unit 3: Morning at Green Gables<span class='badge'>pg 10</span></h3>
+          <div>
+            <span class='label label-primary'>Author</span> Lucy Maud Montgomery</br>
+            <span class='label label-primary'>Characters</span></br>
+
+            <span class='label label-primary'>Marilla Cuthbert</span>     Lady (sister). She doesn’t know how to talk to children. In the beginning, she was curt. But later she started liking Anne</br>
+            <span class='label label-primary'>Matthew Cuthbert </span>  Brother of Marilla Cuthbert</br>
+            <span class='label label-primary'>Anne Shirley</span>  11 year old orphan (no parents). Anne is bright, eager to please, talkative, and extremely imaginative.</br>
+
+            <h4>Answers to Textbook Questions</h4>
+
+            <h5>Answer the following questions in your own words.</h5>
+
+            <p class=bg-primary>1. Why did the Cuthberts not want Anne at Green Gables?</p>
+            <p class=bg-success><b><i>Ans:</i></b> Cuthbert did not want Anne, as she was a girl. They were looking for a boy, to help them at the farm.</p>
+
+            <p class=bg-primary>2. Describe the scene Anne saw outside her window.</p>
+            <p class=bg-success><b><i>Ans:</i></b> Anne saw a beautiful view outside the window. She saw a cherry tree with full of blossoms and no leaf could be seen. Both sides of the house there were two orchards - one side apple trees and another side cherry trees. There was grass all over. It was totally picturesque.</p>
+
+            <p class=bg-primary>3. What tone did Marilla use to talk to Anne? Why did she use that tone?</p>
+            <p class=bg-success><b><i>Ans:</i></b> Marilla was curt (rude) when speaking to Anne. Marilla did not really mean to be rude, but she did not know how to talk to children.</p>
+
+            <p class=bg-primary>4. How was Marilla’s attitude to her surroundings different from Anne’s?</p>
+            <p class=bg-success><b><i>Ans:</i></b> Anne’s view of the world was very imaginative and lovely. Marilla’s attitude was practical and serious.</p>
+
+            <p class=bg-primary>5. What did Marilla ask Anne to do before coming down?</p>
+            <p class=bg-success><b><i>Ans:</i></b> Marilla asked Anne to do below and come for breakfast.
+              <ol class=bg-success>
+                <li>Wash her face</li>
+                <li>comb her hair</li>
+                <li>leave the window up</li>
+                <li>turn her bedclothes</li>
+              </ol>
+            </p>
+            <p class=bg-primary>6. Why was Marilla specially busy that morning?</p>
+            <p class=bg-success><b><i>Ans:</i></b> Marilla was busy that morning as she had to visit Mrs.Spencer.</p>
+
+            <p class=bg-primary>7. Why didn’t Anne go out after washing the dishes?</p>
+            <p class=bg-success><b><i>Ans:</i></b> She loves to go out and see the surroundings in Green Gables. But she thought, if she is not going to stay there for long, why love the surroundings and make friends. Anyway they will be taken away soon.
+
+            <p class=bg-primary>B. Read the lines given below and answer the questions that follow with reference to context. She knelt there, lost to everything but the loveliness around her.</p>
+
+            <p class=bg-primary>Where was Anne kneeling?</p>
+            <p class=bg-success>Ans: Anne was kneeling towards the window.</p>
+
+            <p class=bg-primary>What was the ‘loveliness around her?’</p>
+            <p class=bg-success>Ans: Loveliness around her was the beautiful and picturesque scene of garden with full of flowers and fruits. There were cherry trees, apple trees, green grass and big barns.</p>
+
+            <p class=bg-primary>2. “All sorts of mornings are interesting, don’t you think? You don’t know what’s going to happen through the day and there’s so much scope for imagination.”</p>
+
+            <p class=bg-primary>Who said these words and to whom?</p>
+            <p class=bg-success>Ans: Anne said to Marilla at the breakfast table.</p>
+
+            <p class=bg-primary>Why were mornings interesting to her?</p>
+            <p class=bg-success>Ans: One does not really know what is going to happen during rest of the day. That leaves lot of scope for imagination. That is why it is interesting for Anne.</p>
+
+            <p class=bg-primary>3. The author uses certain interesting expressions in the piece. Look at the following expressions. Find out what they mean and explain why they are interesting.</p>
+              <ul>
+                <li>full bloom</li>
+                <li>sprinkled all over the dandelions</li>
+                <li>beauty-loving eyes</li>
+                <li>lost to everything</li>
+                <li>the brook laughing all the way up here</li>
+                <li>become friendly with the trees and flowers</li>
+              </ul>
+            <p class=bg-primary>D. Anne says, “All sorts of mornings are interesting.” Do you feel the same about mornings? Describe what you feel every morning in diary entries for a week.</p>
+
+            <p class=bg-success>Ans: Yes, I feel the same. Each day brings us with new learnings, meeting new people and new surprises. Every morning is different with new experiences.</p>
+
+            <h4>Word Meanings</h4>
+
+            <span class="label label-primary">gables</span> - <span class="label label-info">triangle roof top</span></br>
+            <span class="label label-primary">foster parents </span>- <span class="label label-info">parents for limited time</span></br>
+            <span class="label label-primary">cheery </span>-<span class="label label-info"> bright</span></br>
+            <span class="label label-primary">bound </span>-<span class="label label-info"> jump</span></br>
+            <span class="label label-primary">boughs </span>-<span class="label label-info">branches</span></br>
+            <span class="label label-primary">lush </span>- <span class="label label-info">rich</span></br>
+            <span class="label label-primary">lingered </span>- <span class="label label-info">rested on</span></br>
+            <span class="label label-primary">curtly </span>-<span class="label label-info"> not in a polite manner</span></br>
+            <span class="label label-primary">smart </span>-<span class="label label-info"> quick</span></br>
+            <span class="label label-primary">scope </span>-<span class="label label-info"> opportunity to do something</span></br>
+            <span class="label label-primary">hold your tongue </span>-<span class="label label-info"> to keep quiet</span></br>
+            <span class="label label-primary">threshold </span>- <span class="label label-info">entrance</span></br>
+            <span class="label label-primary">reverie </span>-<span class="label label-info"> dream</span></br>
+
+          </div>
+
+          <h3>Unit 4: Lord Ullin's Daughter<span class='badge'>pg 17</span></h3>
+          <div>
+              <h4>Summary</h4>
+              <p>
+                “Lord Ullin’s Daughter” is a ballad which tells the tragic story of the daughter of Lord Ullin and her lover who die a very sorrowful death when chased by her father and his men.
+              </p>
+
+              <p>
+                The poem begins with the daughter and her lover, the Scottish chieftain arriving at the banks of Lochgyle with the intention of eloping to a safer place. The lover offers the boatman a silver pound to cross them to safety. The weather is stormy and it is very dangerous to cross the Lochgyle in such a state. The lover introduces himself as the chief of Ulva and that he is running from Lord Ullin’s men.
+              </p>
+
+              <p>
+                He tells the boatman that if the Lord’s men catch him eloping with her daughter, they would immediately slay him. The boatman hesitates because agreeing can cost him all of the three lives. Then the beautiful daughter of Lord Ullin pleads to the boatman; she says that she is ready to face the raging storm but not her angry father. Finally, the boatman agrees to take them across Lochgyle.
+              </p>
+
+              <p>
+                The boat has left the shore when Lord Ullin and his men reach. Lord Ullin’s anger evaporates at the moment when he sees his darling daughter fighting with Nature’s fury on the sea. His heart melts and he cries out to her to return and that he would accept her lover. But it is too late and before the Lord could do anything, the little boat capsizes and the three of them are drowned in the turbulent waters of Lochgyle.
+              </p>
+
+              <h4>Answers to Textbook Questions</h4>
+
+              <h5>A: Set 1</h5>
+
+              <p class=bg-primary>Where was the chieftain going and with whom?</p>
+              <p class=bg-success>Ans: Chieftain was eloping with Lord Ullin’s daughter.</p>
+
+              <p class=bg-primary>What did he ask the boatman?</p>
+              <p class=bg-success>Ans: Chieftain asked the boatman to help cross Lochgyle, as Lord Ullin and his soldiers were behind them.</p>
+
+              <p class=bg-primary>What would happen if Lord Ullin’s men found the chieftain and his bride? Why?</p>
+
+              <p class=bg-success>Ans: If Lord Ullin’s men found Chieftain and Lord Ullin’s daughter, they would slaughter them. Because Chieftain was eloping Lord Ullin’s daughter.</p>
+
+              <p class=bg-primary>What does the boatman assure them?</p>
+              <p class=bg-success>Ans: Boatman assured that he will not delay further, he will ride the boat even though it was stormy night.</p>
+
+              <p class=bg-primary>What did lord Ullin find when he arrived at the shores of the lake?</p>
+              <p class=bg-success>Ans: Lord Ullin found the last glimpse of her daughter caught in mighty storm and drowning.</p>
+
+              <p class=bg-primary>What did he cry out? What had happened?</p>
+              <p class=bg-success>Ans: Lord Ullin cried out “Come back! Come back!”, when he saw the boat and her daughter drowning. He said that he would have forgiven her. But she drowned in the stormy water.</p>
+
+            B. Set 2
+
+              <p class=bg-primary>“And fast before her father’s men
+              Three days we’ve fled together,
+              For should he find us in the glen,
+              My blood would stain the heather.”</p>
+
+              <p class=bg-primary>Who is the speaker? To whom is he speaking?</p>
+              <p class=bg-success>1a. Speaker is the Chieftain of Ulva’s isle. He was speaking to boatman.</p>
+
+              <p class=bg-primary>      b. Why had the speaker fled? Where is he fleeing?</p>
+
+              <p class=bg-success>1b. Chieftain was eloping with Lord Ullin’s daughter. He was escaping from Lord Ullin and his men.</p>
+
+              <p class=bg-primary>     c. What would happen if they were found in the glen?</p>
+              <p class=bg-success>1c. Chieftain would be slaughtered.</p>
+
+              <p class=bg-primary>2. 		“And by my word! The bonny bird
+                In danger shall not tarry,
+                So though the waves are raging white
+                I’ll row you o’er the ferry.”</p>
+
+              <p class=bg-primary>who is the speaker?</p>
+              <p class=bg-success>2a. Boatman</p>
+
+              <p class=bg-primary>	b. Who is being referred to as the ‘bonny bird’?</p>
+              <p class=bg-success>2b. Lord Ullin’s daughter is being referred to as bonny bird</p>
+
+              <p class=bg-primary>c. What are the dangers that the speaker will face?</p>
+              <p class=bg-success>2c. The heavy storm could sink the boat</p>
+
+              <p class=bg-primary>3.“Come back! Come back!” he cried in grief
+                  “Across this stormy water -
+                  And I’ll forgive your Highland chief,
+                  My daughter! O my daughter!”</p>
+
+              <p class=bg-primary>Who is the speaker? Why is he filled with grief?</p>
+              <p class=bg-success>3a. Lord Ullin. He saw his daughter sink in water.</p>
+
+              <p class=bg-primary>	b. Who is he asking to come back? From where?</p>
+              <p class=bg-success>3b. Asking his daughter to come back. From stormy water.</p>
+
+              <p class=bg-primary>c. What does he assure the person he is speaking to?</p>
+              <p class=bg-success>3c. He assures that he will forgive Chieftain.</p>
+
+              C, D, E = not required
+            </div>
+
+          <h3>Unit 10: Harriet the Spy <span class='badge'>(pg 55)</span></h3>
+          <div> <!-- Harriet -->
+            <span class='label label-primary'>Author</span> Louise Fitzhugh</br>
+            <span class='label label-primary'>Characters</span></br>
+
+            <span class='label label-primary'>Harriet</span>     The main character; A girl who likes to be a spy. A Spy (a person who finds information secretly)</br>
+            <span class='label label-primary'>Ole Golly </span>  Governess</br>
+            <span class='label label-primary'>Mrs.Agatha Plumber</span>  House owner where Harriet went to spy</br>
+            <span class='label label-primary'>Janie, Sport</span>    School friends</br>
+
+            <h3>Answers to Textbook questions</h3>
+
+            <p class=bg-primary>Why did Harriet run into her room? What is the hurry to go?
+
+            <p class=bg-success>Ans: Harriet came back from school. She was excited to start her hobby of spying. She wanted to go to Mrs.Agatha Plumber house. It was a new spying place.
+
+            <p class=bg-primary>Describe Harriet’s spy clothes
+            <p class=bg-success>Ans: Harriet wears a funny attire when going spying. Her costume includes -
+            Black rimmed spectacles
+            Very old pair of jeans
+            Torch
+            Leather pouch for notebook, pens, water bottle
+            Dark blue sweatshirt with hood
+            Blue sneakers</p>
+
+            <p class=bg-primary>3. Why do you think Harriet had to hide in the dumbwaiter?
+            <p class=bg-success>Ans: Harriet was spying and she has to observe Mrs. Plumber secretly. So, she was hiding in dumbwaiter.
+
+            <p class=bg-primary>4. What does this story tell about Mrs. Plumber?
+            <p class=bg-success>Ans: Mrs. Plumber was a rich lady who does nothing but talking. She has life very relaxed and does not leave her bed. She has magazines, books and candy boxes spread on it.
+
+            <p class=bg-primary>5. Who is Ole Golly?
+            <p class=bg-success>Ans: Ole Golley is Harriet’s governess. She is one of Harriet’s best friend too.
+
+            <p class=bg-primary>6. Was Harriet correct in spying on Mrs. Plumber? Give reasons for your answer.
+            <p class=bg-success>Ans: No, it is not correct to spy on others for two reasons. One, we should not interfere in others personal life. Two, people can think we are thief and caught by police.
+
+            <p class=bg-primary>B.
+              “Well,” Mrs Plumber was saying to someone over the telephone. “I have discovered the secret of life.”
+
+              Who is Mrs Plumber>?</p>
+            <p class=bg-success>Mrs. Plumber is a lady in Harriet’s neighbourhood.
+
+            <p class=bg-primary>      What, according to Mrs Plumber, is the secret of life?
+            <p class=bg-success>The secret is ‘to just stick to your bed and do not leave it for anybody’.
+
+            <p class=bg-primary>     Who overhears this comment? What is her reaction to this comment?
+            <p class=bg-success>Harriet who was spying in Mrs. Plumber house overhears it. She finds Mrs. Plumber life worthless.</p>
+
+            <p class=bg-primary>C. (Answer T or NT)</p>
+
+            <p class=bg-primary>  Harriet enjoys Math and Science</p>
+            <p class=bg-success>NT (No, because when she said those two subjects she did ‘urgh’)</p>
+            <p class=bg-primary>  Harriet likes her room to be neat and tidy.</p>
+            <p class=bg-success>T
+            Harriet’s mother nags her to keep room clean</p>
+            <p class=bg-success>NT (Harriet herselves likes cleanliness)</p>
+            <p class=bg-primary> Harriet wears glasses because she needs them</p>
+            <p class=bg-success>NT (Harriet just thinks she will look cool with glasses)</p>
+            <p class=bg-primary>  Mrs Plumber lives a very lazy and uninterested life</p>
+            <p class=bg-success>T</p>
+            <p class=bg-primary> Harriet enjoys lying down in bed</p>
+            <p class=bg-success>NT (Harriet thinks the less time you spend on bed, the better)</p>
+
+          </div> <!-- Harriet chapter -->
+
+          <h3>Unit 11: Matilda <span class='badge'>(pg 62)</span></h3>
+          <div> <!-- Matilda -->
+              <b>Author:</b> Hilaire Belloc</br>
+
+              <b>Characters:</b></br>
+              <li>Matilda
+              <li>Matilda’s Aunt
+
+              </br></br>
+              Internet:
+              https://www.youtube.com/watch?v=XkHo753dHUU
+
+
+              <p class=bg-primary>In what way was Matilda different from her aunt?</p>
+              <p class=bg-success>Ans: Matilda’s aunt had high regard for truth and never told lies. But Matilda could tell big lies just for fun.</p>
+
+              <p class=bg-primary>Why did Matilda call the Fire Brigade?</p>
+              <p class=bg-success>Ans: Calling fire brigade was a prank.</p>
+
+              <p class=bg-primary>What happened as a result of this summons (call)?</p>
+              <p class=bg-success>Ans: Fire brigade came thinking there was fire.</p>
+
+              <p class=bg-primary>Why did Matilda’s aunt not take her to the theatre?</p>
+              <p class=bg-success>Ans: Matilda’s aunt was fed up of Matilda’s lies. She wanted to punish Matilda by not taking her to theatre.</p>
+
+              <p class=bg-primary>What happened when Matilda was alone at home?</p>
+              <p class=bg-success>Ans: When Matilda was home, fire broke out.</p>
+
+              <p class=bg-primary>Why didn’t anymore believe her? What ultimately happened to Matilda?</p>
+              <p class=bg-success>Ans: As Mathilda was known for telling lies, people did not believe when there was real fire. As nobody came to help, Matilda was killed in fire.</p>
+
+              Reference to context
+              <p class=bg-primary>B. 1. Within an hour the Gallant Band
+              	Were pouring in on every hand,
+              	From Putney, Hackney Downs and Bow,
+              	With Courage high and Hearts a-glow
+              	“Matilda’s House is Burning Down!”</p>
+
+              <p class=bg-primary>  What is the ‘Gallant Band’?</p>
+              <p class=bg-success>Ans: Gallant band is the fire brigade who arrived to douse the fire.</p>
+              <p class=bg-primary>Who had summoned (called) them and why?</p>
+              <p class=bg-success>Ans: Matilda called fire brigade as a prank (practical joke).</p>
+              <p class=bg-primary>What did they do upon coming to Matilda’s house?</p>
+              <p class=bg-success>Ans: Fire brigade started putting their ladder and took great pain to put out fire.</p>
+
+              <p class=bg-primary>2.  	A deprivation Just and Wise
+              	To Punish her for Telling Lies.
+              	That Night a Fire did break out -</p>
+
+              <p class=bg-primary>What was Matilda deprived of? Why?</p>
+              <p class=bg-success>Ans: Aunt did not take Matilda to the play as punishment. She was telling lies.</p>
+              <p class=bg-primary>  What did Matilda do when the fire broke out?</p>
+              <p class=bg-success>Ans: When the real fire broke out, Matilda started shouting and screaming.</p>
+              <p class=bg-primary>How did the people react to her this time?</p>
+              <p class=bg-success>Ans: When real fire broke out and Matilda was shouting for help, people started calling her a liar and ignored her cries.</p>
+
+          </div> <!-- Matilda -->
+
+          <h3> Unit 14: Don't Rat a Mouse <span class='badge'>(pg 80)</span></h3>
+          <div> <!-- Rat a Mouse -->
+
+          </div> <!-- Don't Rat a Mouse -->
+
+          <h3>Unit 17: Bilbo and the Dwarves <span class='badge'>(pg 101)</span></h3>
+          <div> <!-- Biblo -->
+            <b>Author</b>J  R R Tolkien</br>
+
+            <b>Characters</b>
+            <li>Bilbo Baggins
+            <li>Gandalf
+
+            </br><b>Dwarfs</b></br>
+            <li>Dwalin
+            <li>Kili
+            <li>Fili
+            <li>Dori
+            <li>Nori
+            <li>Ori
+
+
+            <li>Oin
+            <li>Thorin
+            <li>Gloin
+            <li>Balin
+            <li>Bifur
+            <li>Bofur
+            <li>Bombur
+
+            <p class=bg-primary>Answers to Textbook Questions</p>
+
+            <p class=bg-primary>1. Who was Biblo expecting at teatime? Who came instead?</p>
+            <p class=bg-success>Bilbo was expecting Gandalf. But the dwarfs came instead. First dwarf who came was Dwalin.</p>
+            <p class=bg-primary>2. Which dwarf was expecting to see a 'throng'? How did Bilbo react to this?</p>
+            <p class=bg-success>Kili was expecting to see a ‘throng’. Bilbo was least interested in all things dwarves talked.</p>
+            <p class=bg-primary>How many dwarves came in all? Name them.</p>
+            <p class=bg-success>There were thirteen dwarves.</p>
+            <p class=bg-primary>4. Do you think dwarves were sensitive to Bilbo's discomfort? Give reasons for your answer.</p>
+            <p class=bg-success>No, dwarves were not sensitive to Bilbo’s discomfort. When preparing for party Bilbo was furious as he was expecting some help from dwarves for arrangements. He shouted “why don’t they come and lend a hand?”.</p>
+            <p class=bg-primary>Do the dwarves help Bilbo? How do you know this?</p>
+            <p class=bg-success>Gandalf is the leader of the dwarves. <how is he described?></p>
+              <p class=bg-primary></p>
+            <p class=bg-success>Yes, the dwarves helped the Bilbo. Balin, Dwalin, Bofur and Bombur lend a helping hand in arrangement.</p>
+            <p class=bg-primary>7. What do dwarves sign of? How does this affect Bilbo?</p>
+            <p class=bg-success>Dwarves sang about lot of beautiful things like mountains, trees, waterfalls. This made Bilbo thinking that he should go out and explore these.</p>
+
+            B. Who says these words? To Whom? And Why?</p>
+            <p class=bg-primary>1. I am sorry to keep you waiting!</p>
+            <p class=bg-success>Who: Bilbo; Whom: Dwalin; Bilbo thought it was Gandalf</p>
+            <p class=bg-primary>2. It's Gandalf for certain this time.</p>
+            <p class=bg-success>Who: Bilbo; Whom: Kili, Fili; Bilbo thought it was Gandalf this time</p>
+            <p class=bg-primary>3. Let us join the throng!</p>
+            <p class=bg-success>Who: Kili; Whom: Dwalin; Kili was talking about the meeting.</p>
+            <p class=bg-primary>4. Some four, I should say by the sound.</p>
+            <p class=bg-success>Who: Fili; Whom: Dwalin; He was guessing who was ringing the door bell</p>
+            <p class=bg-primary>5. PUt on a few eggs, there's a good fellow!</p>
+            <p class=bg-success>Who: Gandalf; Whom: Dwalin, Bilbo; Dwalin was arranging food</p>
+            <p class=bg-primary>6. We shan't get through the business till late!</p>
+            <p class=bg-success>Who: Thorin; Whom: Gandalf;</p>
+            <p class=bg-primary>7. Bother these dwarves!</p>
+            <p class=bg-success></p>
+            <p class=bg-primary>8. The dragon’s ire more free than fire</p>
+            <p class=bg-success></p>
+
+          </div> <!-- Bilbo -->
+
+          <h3>Unit 19: The First Meeting with Count Dracula <span class='badge'>(pg 116)</span></h3>
+          <div> <!-- count dracula -->
+            <b>Characters</b>
+            <li>Dracula
+            <li>Jonathan Harker - A young English lawyer
+
+            <b>Summary</b></br>
+
+            <p>Dracula is a horror novel. Dracula drinks blood daily to stay alive.</p>
+
+            <h4>Answers to Textbook questions</h4>
+
+            <h4>Match the following</h4>
+
+            <div class=container>
+            <ul id="sortable1" class="connectedSortable">
+              <li class="ui-state-default">1. The drive was pulling up the horses in the courtyard of a large, ruined castle</li>
+              <li class="ui-state-default">2. Welcome to my house! Enter freely and of your own free will!</li>
+              <li class="ui-state-default">3. He moved forward and held my hand with strength that made me wince (to make face when in pain)</li>
+              <li class="ui-state-default">4. The hand seems as cold as ice, more like the hand of the dead, than a living man</li>
+              <li class="ui-state-default">5. I hope you will excuse me if I do not join you. I have eaten already.</li>
+              <li class="ui-state-default">6. Listen to them, the children of the night. What music they make! </li>
+              <li class="ui-state-default">7. I have to be away till late in the evening, or sleep well and dream well! </li>
+            </ul>
+
+            <ul id="sortable2" class="connectedSortable">
+              <li class="ui-state-highlight">a. Count Dracula is very strong</li>
+              <li class="ui-state-highlight">b. Count Dracula sleeps during the day and stays awake at night</li>
+              <li class="ui-state-highlight">c. Count Dracula does not eat the food of human beings</li>
+              <li class="ui-state-highlight">d. Wolves are among Count Dracula’s favourite animals</li>
+              <li class="ui-state-highlight">e. Count Dracula cannot force people to enter his castle; they have to enter of their own choice.</li>
+              <li class="ui-state-highlight">f. Count Dracula feels more like a dead man, than living man.</li>
+              <li class="ui-state-highlight">g. Count Dracula lives by himself in the remains of an old castle.</li>
+            </ul>
+            </div>
+
+
+            <p class=bg-primary>B 1. What did Jonathan Harker think and feel as he stood at the entrance of the castle?
+            <p class=bg-success>Ans:Jonathan harker felt as he stood at the entrance of the castle he was doubting about the place and what kind of people live there.
+
+            <p class=bg-primary>2. Who opened the door to Harker? What did this person tell him?
+            <p class=bg-success>Ans: Dracula opened the door to Harker. He told “Welcome to my house! Enter freely and of your own free will!”
+
+            <p class=bg-primary>3. What did Harker notice about count’s appearance?
+            <p class=bg-success>Ans: Count’s face was aquiline (curved), with a thin nose and arched nostrils and a high forehead. His eyebrows were large, his hair was bushy. His mouth was cruel looking with sharp and white teeth.
+
+            <p class=bg-primary>4. Why do you think the count did not eat with Harker?
+            <p class=bg-success>Ans: The count did not eat with Harker because the dracula said he had already eaten. But count dracula does not eat human food.
+
+            <p class=bg-primary>5. What did the count say when he heard the wolves howling? What do you think that signifies?
+            <p class=bg-success>Ans: The dracula says that the sound was nice like music. This signifies that Count Dracula was not ordinary man. He is evil spirit.
+
+            <p class=bg-primary>6. Give one reason why you think the count speaks in a ‘courtly’ manner.
+            <p class=bg-success>Ans: He spoke in a courtly manner because he knew he was speaking to a lawyer (Harker).
+
+            <p class=bg-primary>C. Read the lines given below and answer the questions that follow with reference to context.
+
+            The hand seemed as cold as ice, more like the hand of a dead, than a living man.
+            “Count Dracula?” I said.
+
+            <p class=bg-primary>Whose hand is described here?
+            <p class=bg-success>Ans: It was dracula’s hand.
+
+            <p class=bg-primary>Who asks the question?
+            <p class=bg-success>Ans: Jonathan Harker
+
+
+            <p class=bg-primary>2. We were both silent for a while, and as I looked towards the window I saw the first streak of the coming dawn.
+
+            <p class=bg-primary>Why had the speaker come to the count’s castle?
+            <p class=bg-success>Ans: Jonathan Harker is a lawyer. He came to help Count Dracula buy property in England.
+
+            <p class=bg-primary>Did he feel uneasy coming here?
+            <p class=bg-success>Ans: Yes, he felt uneasy coming there, because there were many strange things happening.
+
+            <p class=bg-primary>What sound could be heard with the first streaks of dawn?
+            <p class=bg-success>Ans: He was hearing howling of many wolves.
+
+            <p class=bg-primary>What did the count tell him upon hearing this sound?
+            <p class=bg-success>Ans: Count said that it sounds like music.```
+          </div> <!-- count dracula -->
+
+          <h3>Unit 26: Twelve O'Clock <span class='badge'>(pg 162)</span> </h3>
+          <div>
+            <b>Author</b>    Rabindranath Tagore</br>
+
+            <h4>Answer the following questions in your own words</h4>
+
+            <p class=bg-primary>What is the speaker doing? What does she or he wish to do?
+            <p class=bg-success>Ans: Speaker was studying from morning till noon. <second answer>
+
+            <p class=bg-primary>What is the sky like when it is twelve o’clock in the afternoon?
+            <p class=bg-success>Ans: <answer>
+
+            <p class=bg-primary>What is the sky like when it is late in the evening and the sun is going to set?
+            <p class=bg-success>Ans: In the evening the shadows are growing darker under Madar tree. The water in the pond looks shiny black.
+
+            <p class=bg-primary>Do you think the speaker has a vivid imagination? Give reasons.
+            <p class=bg-success>Ans: Yes, the speaker has vivid imagination. Speaker was able to describe every detail of how evening is.
+
+            <p class=bg-primary>Why do you think the speaker is impatient with the time?
+            <p class=bg-success>Ans: Just like any child, the speaker finds that time is not passing when he is studying.
+
+            <p class=bg-primary>Read the lines given below and answer the questions that
+               follow with reference to context</br>
+               <p>
+              I can just shut my eyes and think</br>
+            	that the shadows are growing darker</br>
+            	under the Madar tree, and the water</br>
+            	in the pond looks shiny black.</br>
+              </p>
+            <p class=bg-primary>Why does the speaker have to shut his or her eyes to imagine this?
+            <p class=bg-success>Ans: Because it was afternoon and broad day light.
+
+            <p class=bg-primary>What time is it actually? What is the speaker doing?
+            <p class=bg-success>Ans: It was 12 noon. Speaker was studying.
+
+            <p class=bg-primary>Who is the speaker trying to convince?
+            <p class=bg-success>Ans: Mother
+
+            <p class=bg-primary>2.    If twelve o’clock can come in the night,
+             	Why can’t the night come when it is twelve o’clock?
+
+            <p class=bg-primary>Which twelve o’clock is the speaker making a reference to - twelve in the afternoon or in the night?
+            <p class=bg-success>Ans: Twelve in the night
+
+            <p class=bg-primary>Why does the speaker want the night to come when it is twelve o’clock?
+            <p class=bg-success>Ans: so that he can stop studies early.
+
+            <p class=bg-primary>If night came in early at twelve o’clock, it would be very long one indeed! What would you do on such a long night? Would you like it?
+            <p class=bg-success>Ans: I do not like long night. There is little I can do in the night. I like long day as I can play with friends outside, go for picnic and my favourite sport cricket.
+          </div> <!-- Twelve -->
+
+        </div> <!-- accordion -->
+      </div> <!-- Q & A -->
+      <div id=exam-notes>
+        <ol>
+          <li>Chapter <-> Author matching</li>
+          <li>Chapter <-> Characaters matching (who said to whom)</li>
+          <li>What is a ballad? </li>
+          <li>Morning at green gables - <i>but that dream is over</i></li>
+
+        </ol>
+      </div>
+    </div> <!-- tabs -->
+    <div>
+      <p>Click on question to show/hide answers. </p>
+    </div> <!-- footnote -->
+  </div> <!-- container -->
+
+</body>
+</html>
